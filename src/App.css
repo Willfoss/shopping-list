@@ -120,7 +120,7 @@ label {
 
 .list-checkbox:hover {
   border: 3px rgb(101, 132, 173) solid;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .input1 {
