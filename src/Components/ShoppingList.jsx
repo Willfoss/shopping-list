@@ -28,7 +28,14 @@ function ShoppingList(props) {
         revisedShoppingList.push(item);
       }
     });
-    setShoppingList(revisedShoppingList);
+    const correctIdArray = revisedShoppingList.map((item, index) => {
+      return {
+        id: index + 1,
+        item: item.item,
+        quantity: item.quantity,
+      };
+    });
+    setShoppingList(correctIdArray);
   }
 
   return (
