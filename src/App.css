@@ -2,6 +2,14 @@
   --font-size: 20px;
 }
 
+h1 {
+  border-bottom: solid black 3px;
+}
+
+html {
+  font-family: sans-serif;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -110,6 +118,11 @@ label {
   height: 25px;
 }
 
+.list-checkbox:hover {
+  border: 3px rgb(101, 132, 173) solid;
+  transform: scale(1.05);
+}
+
 .input1 {
   width: 250px;
   height: 50px;
@@ -119,6 +132,13 @@ label {
   border: 2px solid #000000;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.input1:hover,
+.input2:hover,
+button:hover {
+  border: 3px rgb(101, 132, 173) solid;
+  transform: scale(1.05);
 }
 
 #shopping-list-delete {
@@ -133,10 +153,18 @@ label {
   color: red;
 }
 
+#quantity-wrapper {
+  padding-right: 13px;
+}
+
 .delete {
   color: rgba(240, 255, 255);
   font-weight: bold;
-  font-size: 25px;
+  font-size: 22px;
+}
+
+.delete:hover {
+  transform: scale(1.2);
 }
 
 .strike-through {
@@ -159,6 +187,7 @@ button {
   width: 200px;
   height: 50px;
   font-size: var(--font-size);
+  font-weight: bold;
 }
 
 .input2 {

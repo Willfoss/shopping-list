@@ -11,11 +11,17 @@ function AddToList(props) {
   }
 
   function handleItemQuantityChange(event) {
-    setQuantityOfItem(event.target.value);
+    if (event.target.value > 0) {
+      setQuantityOfItem(event.target.value);
+    }
   }
 
   function handleItemUnitsChange(event) {
     setUnitsOfItem(event.target.value);
+  }
+
+  function handleItemQuantityClick(event) {
+    setQuantityOfItem("");
   }
 
   function handleAddItemClick(event) {
@@ -40,14 +46,22 @@ function AddToList(props) {
         <div id="quantity-unit-wrapper">
           <div id="quantity-wrapper">
             <label htmlFor="quantity">Quantity</label>
-            <input className="input1" type="number" name="quantity" min="1" onChange={handleItemQuantityChange} value={quantityOfItem}></input>
+            <input
+              className="input1 quantity"
+              type="number"
+              name="quantity"
+              min="1"
+              onChange={handleItemQuantityChange}
+              onClick={handleItemQuantityClick}
+              value={quantityOfItem}
+            ></input>
           </div>
           <div id="unit-wrapper">
             <label htmlFor="item-unit">Units</label>
             <select className="input2" name="item-unit" onChange={handleItemUnitsChange} value={unitsOfItem}>
               <option></option>
               <option value={"mL"}>mL</option>
-              <option value={"L"}>Litres</option>
+              <option value={"L"}>L</option>
               <option value={"g"}> g</option>
               <option value={"kg"}>kg</option>
             </select>
