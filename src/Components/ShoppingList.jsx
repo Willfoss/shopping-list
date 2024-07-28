@@ -8,8 +8,6 @@ function ShoppingList(props) {
   const [crossItemOff, setCrossItemOff] = useState("");
 
   function handleListCheckBoxChange(event) {
-    console.dir(event.target);
-    console.log(event.target.parentNode.nextSibling.classList.add("strike-through"));
     setCheckBoxTicked(event.target.checked);
     if (checkboxTicked === false) {
       event.target.parentNode.nextSibling.classList.add("strike-through");
@@ -19,6 +17,18 @@ function ShoppingList(props) {
       event.target.parentNode.nextSibling.classList.remove("strike-through");
       event.target.parentNode.nextSibling.nextSibling.classList.remove("strike-through");
     }
+  }
+
+  function handleDelete(event) {
+    const id = event.target.id;
+    const revisedShoppingList = [];
+    const shoppingListCopy = [...shoppingList];
+    shoppingListCopy.forEach((item) => {
+      if (item.id !== +id) {
+        revisedShoppingList.push(item);
+      }
+    });
+    setShoppingList(revisedShoppingList);
   }
 
   return (
@@ -31,18 +41,23 @@ function ShoppingList(props) {
         </div>
         {shoppingList.map((item) => {
           return (
-            <div id="shopping-item-wrapper" key={`${item.id}-wrapper`}>
-              <label className="list-label" key={`${item.id}-label`}>
-                {item.id}
-                <input id={item.id} className="list-checkbox" type="checkbox" onChange={handleListCheckBoxChange}></input>
-              </label>
+            <div id="shopping-list-delete" key={`${item.id}-wrapper`}>
+              <div id="shopping-item-wrapper">
+                <label className="list-label" key={`${item.id}-label`}>
+                  {item.id}
+                  <input id={item.id} className="list-checkbox" type="checkbox" onChange={handleListCheckBoxChange}></input>
+                </label>
 
-              <li id="1" className={`list-item `} key={`${item.id}`}>
-                {item.item}
-              </li>
-              <p className={`list-quantity `} key={`${item.id}${item.quantity}`}>
-                {item.quantity}
-              </p>
+                <li className={`list-item `} key={`${item.id}`}>
+                  {item.item}
+                </li>
+                <p className={`list-quantity `} key={`${item.id}${item.quantity}`}>
+                  {item.quantity}
+                </p>
+              </div>
+              <span id={item.id} className="delete" onClick={handleDelete}>
+                X
+              </span>
             </div>
           );
         })}

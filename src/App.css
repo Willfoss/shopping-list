@@ -38,6 +38,7 @@ body {
   padding-bottom: 20px;
   border-bottom: 3px grey solid;
 }
+
 #shopping-item-wrapper {
   height: 15px;
   margin: 0px;
@@ -118,6 +119,24 @@ label {
   border: 2px solid #000000;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+#shopping-list-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 6px;
+  margin-right: 6px;
+}
+
+#shopping-list-delete:hover .delete {
+  color: red;
+}
+
+.delete {
+  color: rgba(240, 255, 255);
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .strike-through {

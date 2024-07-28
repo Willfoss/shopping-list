@@ -27,27 +27,24 @@ function AddToList(props) {
       quantity: quantityOfItem + " " + unitsOfItem,
     });
     setShoppingList(shoppingListCopy);
+    setItemToAdd("");
+    setQuantityOfItem(1);
+    setUnitsOfItem("");
   }
 
   return (
     <div id="add-to-list-wrapper">
       <form>
         <label htmlFor="add-to-list">Add item to list</label>
-        <input
-          className="input1"
-          type="text"
-          name="add-to-list"
-          placeholder="what do you want to add to the list?"
-          onChange={handleAddItemChange}
-        ></input>
+        <input className="input1" type="text" name="add-to-list" onChange={handleAddItemChange} value={itemToAdd}></input>
         <div id="quantity-unit-wrapper">
           <div id="quantity-wrapper">
             <label htmlFor="quantity">Quantity</label>
-            <input className="input1" type="number" name="quantity" defaultValue="1" min="1" onChange={handleItemQuantityChange}></input>
+            <input className="input1" type="number" name="quantity" min="1" onChange={handleItemQuantityChange} value={quantityOfItem}></input>
           </div>
           <div id="unit-wrapper">
             <label htmlFor="item-unit">Units</label>
-            <select className="input2" name="item-unit" onChange={handleItemUnitsChange}>
+            <select className="input2" name="item-unit" onChange={handleItemUnitsChange} value={unitsOfItem}>
               <option></option>
               <option value={"mL"}>mL</option>
               <option value={"L"}>Litres</option>
